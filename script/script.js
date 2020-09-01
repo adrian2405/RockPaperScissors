@@ -1,6 +1,10 @@
     const container = document.querySelector('#container');
     container.innerHTML = '<img id="logo" src="./images/logo.png" alt="logo">';
 
+    const winner = document.createElement('div');
+    winner.classList.add('winner');
+    container.appendChild(winner);
+
     const btns = document.createElement('div');
     btns.classList.add('buttons');
     container.appendChild(btns);
@@ -40,13 +44,13 @@
              win = 0, loose = 0;
              content.innerHTML = '<h1> Puntuación </h1> <h3>CPU: ' + loose + ' YOU: ' +win+ '</h3>';
              info.innerHTML = '';
-             alert('¡Ha ganado tu oponente, inténtalo de nuevo!');
+             winner.innerHTML = '<h2>¡Ha ganado tu oponente, inténtalo de nuevo!</h2>'
         }else if(win == 5){
             gameOver.play();
              win = 0, loose = 0;
              content.innerHTML = '<h1> Puntuación </h1> <h3>CPU: ' + loose + ' YOU: ' +win+ '</h3>';
              info.innerHTML = '';
-             alert('¡Has ganado, enhorabuena!');
+             winner.innerHTML = '<h2>¡Has ganado, enhorabuena!</h2>'
         }
     }
 
@@ -54,7 +58,7 @@
 
     function playRound(playerSelection, computerSelection) {
 
-        info.innerHTML = '<h3>Tú has elegido: '+playerSelection+'</h3><h3>El ordenador ha elegido: '+computerSelection+'</h3>';
+        info.innerHTML = '<h3>El oponente ha elegido: '+computerSelection+'</h3><h3>Has elegido: '+playerSelection+'</h3>';
 
             if((playerSelection == 'rock' && computerSelection == 'paper') || (playerSelection == 'paper' && computerSelection == 'scissors') || 
             (playerSelection == 'scissors' && computerSelection == 'rock')){
@@ -75,6 +79,7 @@
 
     button.addEventListener('click', () => {
         const playerSelection = button.id;
+        winner.innerHTML = ''
         pick.play();
         const computerSelection = computerPlay();
         playRound(playerSelection, computerSelection);
