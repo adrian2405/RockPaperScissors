@@ -1,0 +1,61 @@
+body{
+    padding: 10px;
+}
+
+#container{
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#logo{
+  padding: 20px;
+  border: 1px solid;
+  border-radius: 5em;
+  max-width: 50%;
+  height: auto;
+}
+
+.content{
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.info{
+  margin: auto;
+  text-align: center;
+}
+
+.buttons{
+  margin-top: 150px;
+}
+
+button{
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    margin: 15px;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+  }
+
+#rock{
+    border: none;
+    background: url(../images/rock.png);
+}
+
+#paper{
+    border: none;
+    background: url(../images/paper.png);
+}
+
+#scissors{
+    border: none;
+    background: url(../images/scissors.png);
+}
