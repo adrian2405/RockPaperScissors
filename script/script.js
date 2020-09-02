@@ -34,6 +34,8 @@
         return aleatorio;
     }
 
+    winner.innerHTML = '<h1>Choose your hand, get 5 points and win!</h1>'
+
      var win = 0;
      var loose = 0;
 
@@ -42,33 +44,33 @@
         if(loose == 5){
             gameOver.play();
              win = 0, loose = 0;
-             content.innerHTML = '<h1> Puntuación </h1> <h3>CPU: ' + loose + ' YOU: ' +win+ '</h3>';
+             content.innerHTML = '<h1> SCORE: </h1> <h2>CPU: ' + loose + ' YOU: ' +win+ '</h2>';
              info.innerHTML = '';
-             winner.innerHTML = '<h2>¡Ha ganado tu oponente, inténtalo de nuevo!</h2>'
+             winner.innerHTML = '<h1>You loose, try again!</h1>'
         }else if(win == 5){
             gameOver.play();
              win = 0, loose = 0;
-             content.innerHTML = '<h1> Puntuación </h1> <h3>CPU: ' + loose + ' YOU: ' +win+ '</h3>';
+             content.innerHTML = '<h1> SCORE: </h1> <h2>CPU: ' + loose + ' YOU: ' +win+ '</h2>';
              info.innerHTML = '';
-             winner.innerHTML = '<h2>¡Has ganado, enhorabuena!</h2>'
+             winner.innerHTML = '<h1>You win, congrats!</h1>'
         }
     }
 
-    content.innerHTML = '<h1> Puntuación </h1> <h3>CPU: ' + loose + ' YOU: ' +win+ '</h3>';
+    content.innerHTML = '<h1> SCORE: </h1> <h2>CPU: ' + loose + ' YOU: ' +win+ '</h2>';
 
     function playRound(playerSelection, computerSelection) {
 
-        info.innerHTML = '<h3>El oponente ha elegido: '+computerSelection+'</h3><h3>Has elegido: '+playerSelection+'</h3>';
+        info.innerHTML = '<h2>Opponents hand: '+computerSelection+'</h2><h2>Your hand: '+playerSelection+'</h2>';
 
             if((playerSelection == 'rock' && computerSelection == 'paper') || (playerSelection == 'paper' && computerSelection == 'scissors') || 
             (playerSelection == 'scissors' && computerSelection == 'rock')){
                 loose++;
-        return content.innerHTML = '<h1> Puntuación </h1> <h3>CPU: ' + loose + ' YOU: ' +win+ '</h3>';
+        return content.innerHTML = '<h1> SCORE: </h1> <h2>CPU: ' + loose + ' YOU: ' +win+ '</h2>';
 
         }else if((playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'paper' && computerSelection == 'rock') || 
             (playerSelection == 'scissors' && computerSelection == 'paper')){
                 win++;
-        return content.innerHTML = '<h1> Puntuación </h1> <h3>CPU: ' + loose + ' YOU: ' +win+ '</h3>';
+        return content.innerHTML = '<h1> SCORE: </h1> <h2>CPU: ' + loose + ' YOU: ' +win+ '</h2>';
 
         }
     }
@@ -79,7 +81,7 @@
 
     button.addEventListener('click', () => {
         const playerSelection = button.id;
-        winner.innerHTML = ''
+        winner.innerHTML = '<h1>Choose your hand, get 5 points and win!</h1>'
         pick.play();
         const computerSelection = computerPlay();
         playRound(playerSelection, computerSelection);
